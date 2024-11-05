@@ -1,0 +1,24 @@
+.btnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  gap: var(--s);
+  cursor: pointer;
+  background-color: var(--btn-color);
+  border-radius: var(--border-default);
+  border: none;
+  color: inherit;
+  margin-bottom: var(--m);
+  max-height: 10vh;
+}
+
+.btnImg {
+  /* Given Based on image size */
+  max-height: 2rem;
+}
+
+.btnContainer > span {
+  font-size: var(--ordinary);
+  align-self: center;
+}

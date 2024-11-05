@@ -1,0 +1,16 @@
+.logoContainer {
+  display: flex;
+  gap: var(--sm);
+  align-items: center;
+  font-size: var(--ordinary);
+  margin-bottom: var(--m);
+  max-height: 10vh;
+}
+
+a:link,
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,30 @@
+.questionBox {
+  display: flex;
+  gap: var(--sm);
+  font-size: var(--default);
+  align-items: center;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+  line-height: 1.7;
+  max-height: 10.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.answerBox {
+  width: 100%;
+  height: calc(52vh);
+  border-radius: var(--border-default);
+  display: flex;
+  gap: var(--sm);
+  align-items: flex-start;
+  font-size: var(--default);
+  background-color: var(--div-color);
+  padding: 2rem 3rem;
+  overflow-y: scroll;
+  margin-bottom: var(--xl);
+  line-height: 2;
+}
+
+img {
+  height: var(--xl);
+}

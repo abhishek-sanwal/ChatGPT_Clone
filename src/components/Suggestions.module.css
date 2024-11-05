@@ -1,0 +1,20 @@
+.suggestionsBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm);
+  font-size: var(--xs);
+  font-weight: 600;
+  overflow-y: scroll;
+  max-height: 35vh;
+}
+
+.suggestion {
+  /* Generate left padding based on viewport width */
+  --pad-left: clamp(0.5rem, 0.455vw + 0.341rem, 1rem);
+  cursor: pointer;
+  display: flex;
+  gap: var(--l);
+  padding: var(--pad-left) calc(2 * var(--pad-left));
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-default);
+}

@@ -1,0 +1,14 @@
+.sidebarLowerList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--l);
+}
+.sidebarLowerListElement {
+  display: flex;
+  gap: var(--xm);
+  font-size: var(--default);
+  cursor: pointer;
+}
+.ListOptionsElementPic {
+  max-height: var(--sm);
+}

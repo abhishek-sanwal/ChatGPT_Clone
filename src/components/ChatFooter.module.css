@@ -1,0 +1,36 @@
+.inputBoxWrapper {
+  display: flex;
+  justify-content: space-between;
+  border: solid 1px var(--border-color);
+  margin-bottom: var(--default);
+}
+.inputBox {
+  /* width: 100%; */
+  text-align: left;
+  padding: 1.5rem 2.5rem;
+  outline: none;
+  background-color: inherit;
+  border: none;
+  color: #fff;
+  font-size: var(--sm);
+  resize: none;
+  overflow-y: auto;
+}
+
+button {
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+}
+
+.chatFooterImage {
+  height: var(--l);
+}
+
+.footerMessage {
+  font-size: var(--xs);
+}
+
+.footer {
+  max-height: 30vh;
+}
