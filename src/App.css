@@ -1,0 +1,71 @@
+:root {
+  --border-color: rgb(255, 255, 255, 0.35);
+  --alternate-color: rgb(100, 100, 100);
+  --div-color: #2f2f2f;
+  --xxl: 6.4rem;
+  --xl: 4.8rem;
+  --l: 3.2rem;
+  --m: 2.4rem;
+  --xm: 2.2rem;
+  --sm: 2rem;
+  --ordinary: 1.8rem;
+  --default: 1.6rem;
+  --s: 1.4rem;
+  --xs: 1.2rem;
+  --btn-color: #5a4bff;
+  --border-default: 8px;
+}
+.app {
+  display: grid;
+  grid-template-columns: 30fr 70fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: grid;
+  grid-template-rows: 70fr 30fr;
+  border-right: solid 1px var(--border-color);
+  height: 100vh;
+}
+
+.sidebar--upper {
+  border-bottom: solid 1px var(--border-color);
+  padding: 3rem 3.5rem;
+  max-height: 70vh;
+}
+
+.sidebar--lower {
+  padding: 3rem 3.5rem;
+  max-height: 30vh;
+}
+
+.main-content {
+  padding: var(--xxl);
+  max-height: 100vh;
+}
+
+/*************************************** Media Queries ***********************************************************/
+
+/* For Mobile screens */
+@media screen and (width <= 50em) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+}
+
+@media screen and (width <= 36em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media screen and (width <= 25em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/*********************************************************************************************************/
