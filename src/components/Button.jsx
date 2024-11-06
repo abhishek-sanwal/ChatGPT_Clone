@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-
-function Button({ children, handleClick, inputRef }) {
+function Button({ children, handleClick }) {
   return (
     <button
       style={{

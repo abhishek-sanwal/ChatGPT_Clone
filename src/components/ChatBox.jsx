@@ -1,16 +1,9 @@
 import Chats from "./Chats";
-
-function ChatBox({ messages, chatsRef }) {
+import styles from "./ChatBox.module.css";
+function ChatBox() {
   return (
-    <div
-      style={{
-        overflow: "scroll",
-        maxHeight: "70vh",
-        marginBottom: "2.2rem",
-      }}
-      className="chatBox"
-    >
-      <Chats messages={messages} chatsRef={chatsRef} />
+    <div className={styles.chatBox}>
+      <Chats />
     </div>
   );
 }

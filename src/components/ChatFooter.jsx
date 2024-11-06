@@ -3,26 +3,42 @@ const message =
 
 const version = "August 10";
 
-import { useEffect, useRef, useState } from "react";
-
 import Button from "./Button";
 import send from "../assets/send.svg";
 import { sendMsgToGeminiAI } from "../gen-ai/gemini";
 import styles from "./ChatFooter.module.css";
+import { useChatContext } from "../context/ChatContext";
+import { useGlobalRefContext } from "../context/GlobalRefContext";
+import { useState } from "react";
 
-function ChatFooter({ onAddMessage, onUpdateMessage, inputRef }) {
+function ChatFooter() {
+  // Local State
   const [question, setQuestion] = useState("");
+
+  const { dispatch } = useChatContext();
+  const { inputRef } = useGlobalRefContext();
   async function handleClick() {
     setQuestion("");
 
-    onAddMessage({
-      question,
+    // Add a temporary Loading
+    dispatch({
+      type: "addMessage",
+      payload: {
+        question,
+        response: "",
+      },
     });
 
     const response = await sendMsgToGeminiAI(question);
-    onUpdateMessage({
-      question,
-      response,
+    console.log(response);
+
+    // Add actual answer
+    dispatch({
+      type: "updateMessage",
+      payload: {
+        question,
+        response,
+      },
     });
   }
 
@@ -38,7 +54,7 @@ function ChatFooter({ onAddMessage, onUpdateMessage, inputRef }) {
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
         />
-        <Button inputRef={inputRef} handleClick={handleClick}>
+        <Button handleClick={handleClick}>
           <img className={styles.chatFooterImage} src={send} alt="Send" />
         </Button>
       </div>
