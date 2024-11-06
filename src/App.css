@@ -19,6 +19,7 @@
   display: grid;
   grid-template-columns: 30fr 70fr;
   min-height: 100vh;
+  scrollbar-color: #bada55 #000;
 }
 
 .sidebar {

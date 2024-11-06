@@ -1,0 +1,5 @@
+.chatBox {
+  height: 70vh;
+  margin-bottom: 2.2rem;
+  overflow: scroll;
+}
