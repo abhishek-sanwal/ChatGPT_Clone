@@ -1,6 +1,6 @@
 import Chats from "./Chats";
 
-function ChatBox({ messages }) {
+function ChatBox({ messages, chatsRef }) {
   return (
     <div
       style={{
@@ -10,7 +10,7 @@ function ChatBox({ messages }) {
       }}
       className="chatBox"
     >
-      <Chats messages={messages} />
+      <Chats messages={messages} chatsRef={chatsRef} />
     </div>
   );
 }

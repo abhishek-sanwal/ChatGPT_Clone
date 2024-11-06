@@ -4,7 +4,7 @@
   gap: var(--sm);
   font-size: var(--xs);
   font-weight: 600;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 35vh;
 }
 
@@ -17,4 +17,8 @@
   padding: var(--pad-left) calc(2 * var(--pad-left));
   border: 1px solid var(--border-color);
   border-radius: var(--border-default);
+}
+
+.suggestion > img {
+  height: var(--s);
 }

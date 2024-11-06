@@ -25,33 +25,10 @@ const suggestions = [
   },
 ];
 
-import { useEffect, useState } from "react";
-
 import message from "../assets/message.svg";
 import styles from "./Suggestions.module.css";
 
 function Suggestions() {
-  // const [height, setHeight] = useState(() => calculate);
-
-  // function calculate() {
-  //   if (sideBarUpper.current) {
-  //     const sideBarUpperHeight =
-  //       sideBarUpper.current.getBoundingClientRect().height;
-  //     const logoHeight = logo.current.getBoundingClientRect().height;
-  //     const actionButtonHeight =
-  //       actionButton.current.getBoundingClientRect().height;
-  //     console.log(sideBarUpperHeight, logoHeight, actionButtonHeight);
-  //     setHeight(sideBarUpperHeight - logoHeight - actionButtonHeight - 48);
-  //   }
-  // }
-
-  // useEffect(function () {
-  //   calculate();
-  //   window.addEventListener("resize", calculate);
-
-  //   return () => window.removeEventListener("resize", calculate);
-  // }, []);
-
   return (
     <div className={styles.suggestionsBox} role="button">
       {suggestions.map((suggestion) => {
