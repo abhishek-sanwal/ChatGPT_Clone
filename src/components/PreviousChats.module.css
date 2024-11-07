@@ -1,16 +1,17 @@
-.suggestionsBox {
+.previousChatsBox {
   display: flex;
   flex-direction: column;
   gap: var(--sm);
-  font-size: var(--xs);
+  font-size: var(--s);
   font-weight: 600;
   overflow-y: auto;
   max-height: 35vh;
 }
 
-.suggestion {
+.previousChats {
   /* Generate left padding based on viewport width */
   --pad-left: clamp(0.5rem, 0.455vw + 0.341rem, 1rem);
+  flex: 1;
   cursor: pointer;
   display: flex;
   gap: var(--l);
@@ -19,6 +20,6 @@
   border-radius: var(--border-default);
 }
 
-.suggestion > img {
+.previousChats > img {
   height: var(--s);
 }
