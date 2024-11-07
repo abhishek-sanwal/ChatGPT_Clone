@@ -37,11 +37,13 @@
 
 ### Folder Structure🗂️
 
-![Folder](/chatgpt-clone//ss/Folder.png)
+![Folder](/ss/Folder.png)
 
 **apiKey.js**
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+#### [Get Your Api key now](https://ai.google.dev/gemini-api/docs/api-key)
 
 ```
 const apiKey = "YOUR_GEMINI_API_KEY";
@@ -65,11 +67,11 @@ export default apiKey;
 
 ### Working Screenshots
 
-![SS-1](/chatgpt-clone//ss/ss-1.png)
+![SS-1](/ss/ss-1.png)
 
-![ss-2](/chatgpt-clone//ss/ss-2.png)
+![ss-2](/ss/ss-2.png)
 
-![ss-3](/chatgpt-clone/ss/ss-3.png)
+![ss-3](/ss/ss-3.png)
 
 ---
 
