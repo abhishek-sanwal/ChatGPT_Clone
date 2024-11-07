@@ -1,13 +1,13 @@
 import ActionButton from "./ActionButton";
 import Logo from "./Logo";
-import Suggestions from "./Suggestions";
+import PreviousChats from "./PreviousChats";
 
 function SidebarUpper() {
   return (
     <div>
       <Logo />
       <ActionButton />
-      <Suggestions />
+      <PreviousChats />
     </div>
   );
 }

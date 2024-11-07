@@ -3,43 +3,43 @@ const message =
 
 const version = "August 10";
 
+import { addMessage, updateMessage } from "../context/ChatContext";
+import { memo, useState } from "react";
+
 import Button from "./Button";
 import send from "../assets/send.svg";
 import { sendMsgToGeminiAI } from "../gen-ai/gemini";
 import styles from "./ChatFooter.module.css";
 import { useChatContext } from "../context/ChatContext";
 import { useGlobalRefContext } from "../context/GlobalRefContext";
-import { useState } from "react";
 
 function ChatFooter() {
   // Local State
   const [question, setQuestion] = useState("");
 
-  const { dispatch } = useChatContext();
+  // Global States
+  const { messages, dispatch } = useChatContext();
+  // Global ref
   const { inputRef } = useGlobalRefContext();
+
+  // Function to get llm response
   async function handleClick() {
+    if (!question.trim()) return;
     setQuestion("");
 
-    // Add a temporary Loading
-    dispatch({
-      type: "addMessage",
-      payload: {
-        question,
-        response: "",
-      },
-    });
+    dispatch(addMessage({ question, response: "" }));
 
-    const response = await sendMsgToGeminiAI(question);
-    console.log(response);
+    // New Interactive chat or not?
+    const isFresh = messages.length === 0;
+    const response = await sendMsgToGeminiAI(question, isFresh);
 
     // Add actual answer
-    dispatch({
-      type: "updateMessage",
-      payload: {
+    dispatch(
+      updateMessage({
         question,
         response,
-      },
-    });
+      })
+    );
   }
 
   return (
@@ -54,7 +54,7 @@ function ChatFooter() {
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
         />
-        <Button handleClick={handleClick}>
+        <Button question={question} handleClick={handleClick}>
           <img className={styles.chatFooterImage} src={send} alt="Send" />
         </Button>
       </div>
@@ -65,4 +65,4 @@ function ChatFooter() {
   );
 }
 
-export default ChatFooter;
+export default memo(ChatFooter);

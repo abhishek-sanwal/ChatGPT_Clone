@@ -1,18 +1,14 @@
+import { addChat } from "../context/ChatContext";
 import addLogo from "../assets/add-30.png";
-import { checkEqual } from "../gen-ai/gemini";
 import styles from "./ActionButton.module.css";
 import { useChatContext } from "../context/ChatContext";
 
 function ActionButton() {
-  // Local State
-  const { messages, dispatch, oldChats } = useChatContext();
+  const { messages, dispatch } = useChatContext();
 
   function handleClick() {
-    // Add message to old chats
-
-    const alreadyThere = messages.length > 0;
-    console.log(alreadyThere);
-    if (alreadyThere) dispatch({ type: "addChat", payload: messages });
+    //  Should have at least one message
+    if (messages.length > 0) dispatch(addChat(messages));
   }
 
   return (
