@@ -3,7 +3,6 @@ import "../App.css";
 import { ChatContextProvider } from "../context/ChatContext";
 import { GlobalRefContextProvider } from ".././context/GlobalRefContext";
 import Main from "../components/Main";
-import MyComponent from "../components/temp";
 import SidebarLower from ".././components/SidebarLower";
 import SidebarUpper from ".././components/SidebarUpper";
 
