@@ -12,40 +12,45 @@ const model = genAI.getGenerativeModel({
   },
 });
 
-// const chat = model.startChat({
-//   history: [
-//     {
-//       role: "user",
-//       parts: [{ text: "Hello" }],
-//     },
-//     {
-//       role: "model",
-//       parts: [{ text: "Great to meet you. What would you like to know?" }],
-//     },
-//   ],
-// });
-// let result = await chat.sendMessage("I have 2 dogs in my house.");
-// console.log(result.response.text());
-// result = await chat.sendMessage("How many paws are in my house?");
-// console.log(result.response.text());
+let chat;
 
-// chat = model.start_chat(
-//   (history = [
-//     { role: "user", parts: "Hello" },
-//     { role: "model", parts: "Great to meet you. What would you like to know?" },
-//   ])
-// );
-// response = chat.send_message("I have 2 dogs in my house.");
-// print(response.text);
-// response = chat.send_message("How many paws are in my house?");
-// print(response.text);
+function startNewInteractiveChat() {
+  // Starts a new Interactive chat
+  chat = model.startChat({
+    history: [
+      {
+        role: "user",
+        parts: [{ text: "Hello" }],
+      },
+      {
+        role: "model",
+        parts: [{ text: "Great to meet you. What would you like to know?" }],
+      },
+    ],
+  });
 
-export async function sendMsgToGeminiAI(prompt) {
+  return chat;
+}
+
+async function sendMsgToGeminiAI(prompt, isFresh = false) {
   try {
-    const res = await model.generateContent(prompt);
+    chat = isFresh ? startNewInteractiveChat() : chat;
+    const res = await chat.sendMessage(prompt);
     return res?.response?.text();
   } catch (e) {
     console.log(e);
-    throw new Error("GeminiApi Request Failed!!");
+    throw new Error("GeminiApi Request Failed!!. Please request again");
   }
 }
+
+function checkEqual(first, second) {
+  const ok = Object.keys,
+    tx = typeof first,
+    ty = typeof second;
+  return first && second && tx === "object" && tx === ty
+    ? ok(first).length === ok(second).length &&
+        ok(first).every((key) => deepEqual(first[key], second[key]))
+    : first === second;
+}
+
+export { sendMsgToGeminiAI, startNewInteractiveChat, checkEqual };
