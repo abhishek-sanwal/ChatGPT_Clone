@@ -22,3 +22,7 @@
   font-size: var(--ordinary);
   align-self: center;
 }
+
+.btnContainer:hover {
+  background-color: #2d2680;
+}
