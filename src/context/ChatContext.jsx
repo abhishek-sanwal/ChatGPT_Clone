@@ -1,14 +1,17 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
+
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const chatContext = createContext();
 
-const initialState = {
-  messages: [],
-  oldChats: [],
-};
-
 function reducer(state, action) {
   switch (action.type) {
+    case "setMessages":
+      return { ...state, messages: action.payload };
+
+    case "setOldChats":
+      return { ...state, oldChats: action.payload };
+
     case "addMessage":
       return {
         ...state,
@@ -33,6 +36,13 @@ function reducer(state, action) {
       return { ...state, messages: newMessages };
 
     case "addChat":
+      if (state.oldChats.includes(action.payload)) {
+        return {
+          ...state,
+          messages: [],
+        };
+      }
+
       return {
         ...state,
         messages: [],
@@ -53,12 +63,52 @@ function reducer(state, action) {
       };
 
     default:
-      throw new Error(" Invalid action type!!");
+      return state;
   }
 }
 
 function ChatContextProvider({ children }) {
-  const [{ messages, oldChats }, dispatch] = useReducer(reducer, initialState);
+  const [newMessages, setNewMessages] = useLocalStorage({
+    key: "messages",
+    initialState: [],
+  });
+
+  const [newChats, setNewChats] = useLocalStorage({
+    key: "oldChats",
+    initialState: [],
+  });
+
+  const [{ messages, oldChats }, dispatch] = useReducer(reducer, {
+    oldChats: newChats,
+    messages: newMessages,
+  });
+
+  useEffect(
+    function () {
+      async function updateLocalStorage() {
+        setNewMessages(messages);
+        setNewChats(oldChats);
+      }
+      updateLocalStorage();
+    },
+
+    [messages, oldChats]
+  );
+
+  // Uncomment to ask for confirmation before closing window
+  // useEffect(function () {
+  //   function handleClose(event) {
+  //     const message = " Are you sure you want to close this window? ";
+  //     event.returnValue = message; // For modern browsers
+
+  //     // For Old browsers.
+  //     return message;
+  //   }
+
+  //   window.addEventListener("beforeunload", handleClose);
+
+  //   return () => window.removeEventListener("beforeunload", handleClose);
+  // }, []);
 
   return (
     <chatContext.Provider value={{ messages, oldChats, dispatch }}>
@@ -77,4 +127,66 @@ function useChatContext() {
   return context;
 }
 
-export { useChatContext, ChatContextProvider };
+// Action Creators //
+
+function setMessages(messages) {
+  return {
+    type: "setMessages",
+    payload: messages,
+  };
+}
+
+function setOldChats(oldChats) {
+  return {
+    type: "setOldChats",
+    payload: oldChats,
+  };
+}
+
+function addMessage(obj) {
+  return {
+    type: "addMessage",
+    payload: obj,
+  };
+}
+
+function updateMessage(message) {
+  return {
+    type: "updateMessage",
+    payload: message,
+  };
+}
+
+function addChat(chat) {
+  return {
+    type: "addChat",
+    payload: chat,
+  };
+}
+
+function setChat(chat) {
+  return {
+    type: "setChat",
+    payload: chat,
+  };
+}
+
+function deleteChat(chat) {
+  return {
+    type: "deleteChat",
+    payload: chat,
+  };
+}
+
+// Named Exports
+export {
+  useChatContext,
+  ChatContextProvider,
+  setMessages,
+  setOldChats,
+  addChat,
+  setChat,
+  deleteChat,
+  addMessage,
+  updateMessage,
+};
