@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useTypewriter } from "react-simple-typewriter";
 
 function TypewriterComponent({ data }) {
+  const typeWriterRef = useRef();
   const [text] = useTypewriter({
     words: [data],
     typeSpeed: 10,
   });
 
+  // Automatically Scroll Content
+  useEffect(
+    function () {
+      typeWriterRef.current?.scrollIntoView({
+        block: "end",
+        behavior: "smooth",
+      });
+    },
+    [text]
+  );
   return (
-    <div>
+    <div ref={typeWriterRef}>
       {/* Render Markdown with syntax highlighting */}
       <ReactMarkdown
         children={text}
