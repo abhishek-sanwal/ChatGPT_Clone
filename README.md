@@ -75,6 +75,12 @@ export default apiKey;
 
 ---
 
+### LightHouse Report
+
+![ss-4](/ss/ss-4.png)
+
+---
+
 ### Upcoming Features:
 
 - Optimizing layout for small screens
