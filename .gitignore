@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 */*/apiKey.js
+
+.env.production
