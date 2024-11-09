@@ -12,7 +12,7 @@
 
 .answerBox {
   width: 100%;
-  height: calc(52vh);
+  height: 52vh;
   border-radius: var(--border-default);
   display: flex;
   gap: var(--sm);
