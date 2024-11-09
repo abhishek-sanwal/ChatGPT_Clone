@@ -1,25 +1,7 @@
-:root {
-  --border-color: rgb(255, 255, 255, 0.35);
-  --alternate-color: rgb(100, 100, 100);
-  --div-color: #2f2f2f;
-  --xxl: 6.4rem;
-  --xl: 4.8rem;
-  --l: 3.2rem;
-  --m: 2.4rem;
-  --xm: 2.2rem;
-  --sm: 2rem;
-  --ordinary: 1.8rem;
-  --default: 1.6rem;
-  --s: 1.4rem;
-  --xs: 1.2rem;
-  --btn-color: #5a4bff;
-  --border-default: 8px;
-}
 .app {
   display: grid;
   grid-template-columns: 30fr 70fr;
   min-height: 100vh;
-  scrollbar-color: #bada55 #000;
 }
 
 .sidebar {
@@ -47,8 +29,8 @@
 
 .dataButton {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 2.5rem;
+  right: 2.5rem;
   color: #ffffff99;
 }
 

@@ -4,9 +4,49 @@
   box-sizing: inherit;
 }
 
+:root {
+  --border-color: rgb(255, 255, 255, 0.35);
+  --alternate-color: rgb(100, 100, 100);
+  --div-color: #2f2f2f;
+  --xxl: 6.4rem;
+  --xl: 4.8rem;
+  --l: 3.2rem;
+  --m: 2.4rem;
+  --xm: 2.2rem;
+  --sm: 2rem;
+  --ordinary: 1.8rem;
+  --default: 1.6rem;
+  --s: 1.4rem;
+  --xs: 1.2rem;
+  --btn-color: #5a4bff;
+  --border-default: 8px;
+  --scroll-track-color: #212121;
+  --scroll-track-piece-color: #bada55;
+}
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  /* Firefox and Chrome */
+  scrollbar-color: var(--scroll-track-piece-color) var(--scroll-track-color);
+  scrollbar-width: var(--border-default);
+}
+
+/* For Safari */
+*::-webkit-scrollbar {
+  width: var(--border-default); /* Adjust width as needed */
+}
+
+/* For Safari */
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-corner {
+  background: var(--scroll-track-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-track-piece-color);
+  border-radius: 6px;
+  border: 2px solid #212121;
 }
 
 body {
