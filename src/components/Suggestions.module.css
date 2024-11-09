@@ -1,0 +1,23 @@
+.suggestionBox {
+  display: flex;
+  gap: 2.2rem;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.suggestions {
+  padding: 1rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  width: fit-content;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-basis: 1;
+  background-color: #646464;
+  font-weight: 700;
+}
+
+.suggestions > img {
+  height: 2.4rem;
+}
