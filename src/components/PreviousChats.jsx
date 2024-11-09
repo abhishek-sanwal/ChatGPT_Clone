@@ -21,7 +21,7 @@ function PreviousChats() {
               {/* Only Display First 25 Characters */}
               {chat[0]?.question.length > 25
                 ? `${chat[0]?.question.slice(0, 20)}...`
-                : chat[0]?.question.length}
+                : chat[0]?.question}
             </p>
           </div>
         );
