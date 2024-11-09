@@ -13,6 +13,7 @@ function HomePage() {
   return (
     // Full App
     <div className="app">
+      {" "}
       <ChatContextProvider>
         {/* Left Sidebar  */}
         <section className="sidebar">
@@ -26,7 +27,6 @@ function HomePage() {
           </section>
         </section>
         {/* Right Side Main Content */}
-
         {/* Global ref provider  */}
         <GlobalRefContextProvider>
           <main className="main-content">

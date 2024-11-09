@@ -17,7 +17,12 @@ function PreviousChats() {
             onClick={() => dispatch(setChat(chat))}
           >
             <img src={messagePic} alt="" />
-            <p>{chat[0]?.question}</p>
+            <p>
+              {/* Only Display First 25 Characters */}
+              {chat[0]?.question.length > 25
+                ? `${chat[0]?.question.slice(0, 20)}...`
+                : chat[0]?.question.length}
+            </p>
           </div>
         );
       })}
