@@ -18,46 +18,38 @@ function ChatFooter() {
   const [question, setQuestion] = useState("");
 
   // Global States
-  const { messages, dispatch } = useChatContext();
+  const { getResponse, messages } = useChatContext();
   // Global ref
   const { inputRef } = useGlobalRefContext();
 
   // Function to get llm response
-  async function handleClick() {
-    if (!question.trim()) return;
+  async function handleSubmit(event) {
+    event.preventDefault();
+    getResponse({
+      question,
+      startNewChat: messages.length === 0,
+    });
     setQuestion("");
-
-    dispatch(addMessage({ question, response: "" }));
-
-    // New Interactive chat or not?
-    const isFresh = messages.length === 0;
-    const response = await sendMsgToGeminiAI(question, isFresh);
-
-    // Add actual answer
-    dispatch(
-      updateMessage({
-        question,
-        response,
-      })
-    );
   }
 
   return (
     <div className={styles.footer}>
-      <div className={styles.inputBoxWrapper}>
-        <textarea
-          ref={inputRef}
-          rows={1}
-          className={styles.inputBox}
+      <form
+        className={styles.inputBoxWrapper}
+        onSubmit={(event) => handleSubmit(event)}
+      >
+        <input
           type="text"
-          placeholder="Send a message"
+          ref={inputRef}
+          className={styles.inputBox}
+          placeholder="Message ChatGPT"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
         />
-        <Button question={question} handleClick={handleClick}>
+        <Button question={question}>
           <img className={styles.chatFooterImage} src={send} alt="Send" />
         </Button>
-      </div>
+      </form>
       <p
         className={styles.footerMessage}
       >{`${message}. ChatGPT ${version} Version`}</p>

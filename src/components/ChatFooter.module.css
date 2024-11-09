@@ -17,12 +17,6 @@
   overflow-y: auto;
 }
 
-button {
-  cursor: pointer;
-  background-color: white;
-  border: none;
-}
-
 .chatFooterImage {
   height: var(--l);
 }

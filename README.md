@@ -12,10 +12,24 @@
 
 ### Features😍
 
-- **Interactive chat** which increase the efficiency of llm to solve your problem.
-- Fully synced will **Local Storage**. You will not loose any response even without login.
-- **Highlighting syntax** and **typing effect** is included to make it feel like chatgpt.
-- All sorts of content is possible like **markdown, db codes, programming codes** etc.
+##### Contextual responses:
+
+- Enhanced chatbot's responses by using the previous conversation to understand the context.
+- This can improve the efficiency of llm to solve your problem.
+
+##### Persistent Data Conversations:
+
+- Conversations remains persisted across sessions.
+- Users can visit their old conversations even in offline mode.
+
+##### Real-Time Interactive chat:
+
+- Enables low-latency, real-time chat conversions with large language models.
+
+##### User Experience:
+
+- Elevated user experience with syntax highlighting and typing effect.
+- Automatic scrolling for generated content.
 
 ---
 

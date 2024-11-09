@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 
+import { sendMsgToGeminiAI } from "../gen-ai/gemini";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const chatContext = createContext();
@@ -61,7 +62,12 @@ function reducer(state, action) {
           (oldChat) => oldChat !== action.payload
         ),
       };
-
+    case "reset":
+      return {
+        ...state,
+        oldChats: [],
+        messages: [],
+      };
     default:
       return state;
   }
@@ -82,6 +88,32 @@ function ChatContextProvider({ children }) {
     oldChats: newChats,
     messages: newMessages,
   });
+
+  async function getResponse({
+    question,
+    response = "",
+    startNewChat = false,
+  }) {
+    if (!question.trim()) return;
+
+    dispatch(addMessage({ question, response }));
+
+    const res = await sendMsgToGeminiAI({ question, startNewChat });
+
+    // Add actual answer
+    dispatch(
+      updateMessage({
+        question,
+        response: res,
+      })
+    );
+  }
+
+  function deleteLocalStorageData() {
+    dispatch(reset());
+    localStorage.removeItem("messages");
+    localStorage.removeItem("oldChats");
+  }
 
   useEffect(
     function () {
@@ -111,7 +143,15 @@ function ChatContextProvider({ children }) {
   // }, []);
 
   return (
-    <chatContext.Provider value={{ messages, oldChats, dispatch }}>
+    <chatContext.Provider
+      value={{
+        messages,
+        oldChats,
+        dispatch,
+        getResponse,
+        deleteLocalStorageData,
+      }}
+    >
       {children}
     </chatContext.Provider>
   );
@@ -178,6 +218,12 @@ function deleteChat(chat) {
   };
 }
 
+function reset(chat) {
+  return {
+    type: "reset",
+  };
+}
+
 // Named Exports
 export {
   useChatContext,
@@ -189,4 +235,5 @@ export {
   deleteChat,
   addMessage,
   updateMessage,
+  reset,
 };

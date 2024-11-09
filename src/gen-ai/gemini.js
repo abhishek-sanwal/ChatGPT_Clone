@@ -32,14 +32,14 @@ function startNewInteractiveChat() {
   return chat;
 }
 
-async function sendMsgToGeminiAI(prompt, isFresh = false) {
+async function sendMsgToGeminiAI({ question, startNewChat = true }) {
   try {
-    chat = isFresh ? startNewInteractiveChat() : chat;
-    const res = await chat.sendMessage(prompt);
+    chat = startNewChat || !chat ? startNewInteractiveChat() : chat;
+    const res = await chat.sendMessage(question);
     return res?.response?.text();
   } catch (e) {
     console.log(e);
-    throw new Error("GeminiApi Request Failed!!. Please request again");
+    return "Unable to fetch. Some Server error ocurred.";
   }
 }
 

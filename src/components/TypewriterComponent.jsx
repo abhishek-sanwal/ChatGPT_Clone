@@ -5,11 +5,11 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useTypewriter } from "react-simple-typewriter";
 
-function TypewriterComponent({ data }) {
+function TypewriterComponent({ data, speed }) {
   const typeWriterRef = useRef();
   const [text] = useTypewriter({
     words: [data],
-    typeSpeed: 10,
+    typeSpeed: speed,
   });
 
   // Automatically Scroll Content

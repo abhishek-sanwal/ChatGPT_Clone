@@ -1,6 +1,9 @@
 import "../App.css";
 
-import { ChatContextProvider } from "../context/ChatContext";
+import { ChatContextProvider, useChatContext } from "../context/ChatContext";
+
+import Button from "../components/Button";
+import DeleteButton from "../components/DeleteButton";
 import { GlobalRefContextProvider } from ".././context/GlobalRefContext";
 import Main from "../components/Main";
 import SidebarLower from ".././components/SidebarLower";
@@ -27,6 +30,7 @@ function HomePage() {
         {/* Global ref provider  */}
         <GlobalRefContextProvider>
           <main className="main-content">
+            <DeleteButton styleClass="dataButton">Delete My Data</DeleteButton>
             <Main />
           </main>
         </GlobalRefContextProvider>

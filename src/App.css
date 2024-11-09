@@ -45,6 +45,19 @@
   max-height: 100vh;
 }
 
+.dataButton {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: #ffffff99;
+}
+
+button {
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+}
+
 /*************************************** Media Queries ***********************************************************/
 
 /* For Mobile screens */
