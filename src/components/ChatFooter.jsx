@@ -1,5 +1,4 @@
-const message =
-  "*ChatGPT may produce incorrect information about people, places, or facts";
+const message = "*ChatGPT can make mistakes. Check important information";
 
 const version = "August 10";
 

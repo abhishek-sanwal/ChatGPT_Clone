@@ -7,6 +7,7 @@ const globalRefContext = createContext();
 function GlobalRefContextProvider({ children }) {
   const chatsRef = useRef();
   const inputRef = useRef();
+
   const { messages } = useChatContext();
 
   // Should run only on mount

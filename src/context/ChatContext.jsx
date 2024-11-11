@@ -218,7 +218,7 @@ function deleteChat(chat) {
   };
 }
 
-function reset(chat) {
+function reset() {
   return {
     type: "reset",
   };

@@ -11,7 +11,7 @@
 }
 
 .answerBox {
-  width: 100%;
+  max-width: 90vw;
   height: 52vh;
   border-radius: var(--border-default);
   display: flex;
@@ -23,10 +23,15 @@
   overflow-y: scroll;
   margin-bottom: var(--xl);
   line-height: 2;
+  overflow: scroll;
+}
+
+.answerBox > * {
+  overflow: scroll;
 }
 
 img {
-  height: var(--xl);
+  height: var(--l);
 }
 
 .noContent {

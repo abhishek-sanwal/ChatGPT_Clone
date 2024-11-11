@@ -12,7 +12,7 @@ function PreviousChats() {
         return (
           <div
             className={styles.previousChats}
-            key={crypto.randomUUID}
+            key={chat[0].question}
             role="button"
             onClick={() => dispatch(setChat(chat))}
           >

@@ -21,3 +21,10 @@
 .suggestions > img {
   height: 2.4rem;
 }
+
+@media screen and (width<=900px) {
+  .suggestionBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

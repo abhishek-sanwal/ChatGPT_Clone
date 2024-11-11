@@ -43,14 +43,14 @@ function Chats() {
     <>
       {messages?.map((element, index) => (
         <>
-          <div className={styles.questionBox} key={crypto.randomUUID}>
+          <div className={styles.questionBox} key={element.question}>
             <img src={userIcon} alt="Random Avatar Image" />
             <p>{element.question}</p>
           </div>
           <div
             ref={chatsRef}
             className={styles.answerBox}
-            key={crypto.randomUUID}
+            key={element.response}
           >
             <img src={logo} alt="Random Avatar Image" />
             {/* No Response or response is loading */}

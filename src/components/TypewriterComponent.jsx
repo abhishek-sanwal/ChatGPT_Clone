@@ -13,15 +13,15 @@ function TypewriterComponent({ data, speed }) {
   });
 
   // Automatically Scroll Content
-  useEffect(
-    function () {
-      typeWriterRef.current?.scrollIntoView({
-        block: "end",
-        behavior: "smooth",
-      });
-    },
-    [text]
-  );
+  // useEffect(
+  //   function () {
+  //     typeWriterRef.current?.scrollIntoView({
+  //       block: "end",
+  //       behavior: "smooth",
+  //     });
+  //   },
+  //   [text]
+  // );
   return (
     <div ref={typeWriterRef}>
       {/* Render Markdown with syntax highlighting */}

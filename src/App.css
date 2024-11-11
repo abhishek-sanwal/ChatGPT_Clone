@@ -1,6 +1,6 @@
 .app {
   display: grid;
-  grid-template-columns: 30fr 70fr;
+  grid-template-columns: minmax(25rem, auto) 1fr;
   min-height: 100vh;
 }
 
@@ -9,6 +9,8 @@
   grid-template-rows: 70fr 30fr;
   border-right: solid 1px var(--border-color);
   height: 100vh;
+  transition: all 0.5s ease-in-out;
+  max-width: 25rem;
 }
 
 .sidebar--upper {
@@ -23,21 +25,43 @@
 }
 
 .main-content {
-  padding: var(--xxl);
+  padding: var(--m);
   max-height: 100vh;
+  position: relative;
+  width: 100%;
 }
 
 .dataButton {
   position: absolute;
-  top: 2.5rem;
-  right: 2.5rem;
+  top: 1rem;
+  right: 1rem;
   color: #ffffff99;
+}
+
+.menu {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #ffffff99;
+  display: none;
+  z-index: 4;
 }
 
 button {
   cursor: pointer;
   background-color: inherit;
   border: none;
+}
+
+.menuClicked {
+  z-index: 3;
+  position: absolute;
+}
+
+.menuClicked.sidebar {
+  transform: translate(0);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 /*************************************** Media Queries ***********************************************************/
@@ -47,12 +71,20 @@ button {
   .app {
     grid-template-columns: 1fr;
   }
+  .menu {
+    display: block;
+  }
+
   .sidebar {
-    display: none;
+    transform: translateX(-100%);
+  }
+  .main-content {
+    position: absolute;
+    z-index: 2;
   }
 }
 
-@media screen and (width <= 36em) {
+@media screen and (width <= 40em) {
   html {
     font-size: 60%;
   }
@@ -61,6 +93,18 @@ button {
 @media screen and (width <= 25em) {
   html {
     font-size: 55%;
+  }
+}
+
+@media screen and (width <=22em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (width <=17em) {
+  html {
+    font-size: 45%;
   }
 }
 
