@@ -86,14 +86,9 @@ function HomePage() {
               handleClick={handleClick}
               styleClass="menu"
             >
-              {toggleSidebar ? (
-                <MdClose
-                  style={{
-                    height: "48px",
-                  }}
-                />
-              ) : (
+              {!toggleSidebar && (
                 <FiMenu
+                  title="Open Menu"
                   style={{
                     height: "48px",
                   }}

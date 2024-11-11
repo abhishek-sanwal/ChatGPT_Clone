@@ -36,6 +36,7 @@ function ChatFooter() {
       <form
         className={styles.inputBoxWrapper}
         onSubmit={(event) => handleSubmit(event)}
+        aria-label="Form to ask Questions to Chatgpt"
       >
         <input
           type="text"
@@ -46,7 +47,11 @@ function ChatFooter() {
           onChange={(e) => setQuestion(e.target.value)}
         />
         <Button question={question}>
-          <img className={styles.chatFooterImage} src={send} alt="Send" />
+          <img
+            className={styles.chatFooterImage}
+            src={send}
+            alt="Ask ChatGPT"
+          />
         </Button>
       </form>
       <p

@@ -10,7 +10,7 @@
   border-right: solid 1px var(--border-color);
   height: 100vh;
   transition: all 0.5s ease-in-out;
-  max-width: 25rem;
+  max-width: 28rem;
 }
 
 .sidebar--upper {
@@ -32,10 +32,16 @@
 }
 
 .dataButton {
+  padding: 2px 4px;
   position: absolute;
   top: 1rem;
   right: 1rem;
   color: #ffffff99;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dataButton:hover {
+  background-color: #333;
 }
 
 .menu {
