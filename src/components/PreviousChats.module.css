@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--sm);
-  font-size: var(--s);
+  font-size: var(--xs);
   font-weight: 600;
   overflow-y: auto;
   max-height: 35vh;
