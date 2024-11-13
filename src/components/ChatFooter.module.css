@@ -38,6 +38,6 @@ button:hover .chatFooterImage {
 
 @media screen and (width <=60em) {
   .footer {
-    width: 95%;
+    width: 90%;
   }
 }

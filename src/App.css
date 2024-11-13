@@ -103,6 +103,10 @@ button {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
+  .copy {
+    font-size: 12px;
+  }
 }
 
 @media screen and (width <=22em) {
