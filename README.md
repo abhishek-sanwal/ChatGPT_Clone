@@ -89,6 +89,34 @@ export default apiKey;
 
 ---
 
+#### Responsive View:
+
+- ##### Iphone 14 pro View
+
+![14-pro-1](/ss/14_Pro-1.png)
+
+![14-pro-2](/ss/14-pro-2.png)
+
+---
+
+- ##### Pixel Pro view
+
+![Pixel-pro-1](/ss/Pixel-7-pro-2.png)
+
+![Pixel-pro-2](/ss/Pixel-7-pro.png)
+
+---
+
+- ##### Macbook 13 inch view
+
+## ![](/ss/Desktop.png)
+
+- ##### Macbook 15 inch view
+
+## ![](/ss/Macbook-15inch.png)
+
+---
+
 ### LightHouse Report
 
 ![ss-4](/ss/ss-4.png)
