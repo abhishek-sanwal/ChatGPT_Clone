@@ -60,7 +60,7 @@ button {
 }
 
 .menuClicked {
-  z-index: 3;
+  z-index: 6;
   position: absolute;
 }
 
