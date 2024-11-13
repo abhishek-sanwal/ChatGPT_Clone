@@ -11,17 +11,13 @@
 }
 
 .answerBox {
-  max-width: 90vw;
-  height: 52vh;
   border-radius: var(--border-default);
   display: flex;
   gap: var(--sm);
-  align-items: flex-start;
   font-size: var(--default);
   background-color: var(--div-color);
   padding: 2rem 3rem;
-  overflow-y: scroll;
-  margin-bottom: var(--xl);
+  margin-bottom: var(--m);
   line-height: 2;
   overflow: scroll;
 }
@@ -31,7 +27,10 @@
 }
 
 img {
-  height: var(--l);
+  height: 3.2rem;
+  width: 3.2rem;
+  flex-basis: 3.2rem;
+  flex-shrink: 0;
 }
 
 .noContent {
@@ -42,4 +41,17 @@ img {
   justify-content: center;
   flex-direction: column;
   gap: 2.8rem;
+}
+
+@media screen and (width <= 29em) {
+  .answerBox {
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    padding-right: 5px;
+  }
+
+  .questionBox {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

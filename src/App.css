@@ -27,11 +27,11 @@
 .main-content {
   padding: var(--m);
   max-height: 100vh;
-  position: relative;
   width: 100%;
 }
 
 .dataButton {
+  font-size: 1.2rem;
   padding: 2px 4px;
   position: absolute;
   top: 1rem;
@@ -73,7 +73,7 @@ button {
 /*************************************** Media Queries ***********************************************************/
 
 /* For Mobile screens */
-@media screen and (width <= 50em) {
+@media screen and (width <= 60em) {
   .app {
     grid-template-columns: 1fr;
   }
@@ -86,7 +86,6 @@ button {
   }
   .main-content {
     position: absolute;
-    z-index: 2;
   }
 }
 
@@ -99,6 +98,10 @@ button {
 @media screen and (width <= 25em) {
   html {
     font-size: 55%;
+  }
+  main-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

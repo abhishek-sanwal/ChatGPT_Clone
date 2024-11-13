@@ -1,22 +1,4 @@
-import "prismjs";
-import "prismjs/themes/prism-holi-theme.css";
-import "prismjs/components/prism-bash";
-import "prismjs/components/prism-css";
-import "prismjs/components/prism-csv";
-import "prismjs/components/prism-docker";
-import "prismjs/components/prism-git";
-import "prismjs/components/prism-json";
-import "prismjs/components/prism-jsx";
-import "prismjs/components/prism-markdown";
-import "prismjs/components/prism-markup";
-import "prismjs/components/prism-mongodb";
-import "prismjs/components/prism-python";
-import "prismjs/components/prism-regex";
-import "prismjs/components/prism-sql";
-import "prismjs/components/prism-typescript";
-import "prismjs/components/prism-yaml";
-import "md-block";
-
+import ReactMarkdownComponent from "./ReactMarkdownComponent";
 import Suggestions from "./Suggestions";
 import TypewriterComponent from "./TypewriterComponent";
 import logo from "../assets/chatgptLogo.svg";
@@ -33,7 +15,7 @@ function Chats() {
   if (!messages.length) {
     return (
       <div className={styles.noContent}>
-        <TypewriterComponent data="What can I help with ?" speed={30} />
+        <TypewriterComponent data="What can I help with ?" speed={20} />
         <Suggestions />
       </div>
     );
@@ -59,7 +41,7 @@ function Chats() {
             ) : index === messages.length - 1 ? (
               <TypewriterComponent data={element.response} speed={10} />
             ) : (
-              <md-block>{element.response}</md-block>
+              <ReactMarkdownComponent text={element.response} />
             )}
           </div>
         </>

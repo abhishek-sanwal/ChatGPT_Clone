@@ -7,26 +7,18 @@ import DeleteButton from "../components/DeleteButton";
 import { FiMenu } from "react-icons/fi";
 import { GlobalRefContextProvider } from "../context/GlobalRefContext";
 import Main from "../components/Main";
-import { MdClose } from "react-icons/md";
 import MenuButton from "../components/MenuButton";
 import SidebarLower from ".././components/SidebarLower";
 import SidebarUpper from ".././components/SidebarUpper";
 
 function HomePage() {
-  const [toggleSidebar, setToggleSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
 
   const menuRef = useRef();
   const mainRef = useRef();
 
   useEffect(function () {
     function hideToggleBar(event) {
-      console.log(
-        menuRef.current,
-        mainRef.current,
-        event.target,
-        mainRef.current.contains(event.target),
-        event.target !== menuRef.current
-      );
       if (
         mainRef.current &&
         menuRef.current &&
@@ -35,7 +27,7 @@ function HomePage() {
         // But not on menu icon
         event.target !== menuRef.current
       ) {
-        setToggleSidebar(false);
+        setSidebar(false);
       }
     }
 
@@ -44,35 +36,36 @@ function HomePage() {
   }, []);
 
   useEffect(function () {
-    function hideToggleBar() {
-      if (window.innerWidth >= 800) {
-        setToggleSidebar(false);
+    function automaticallyHideSideBar() {
+      if (window.innerWidth >= 950) {
+        setSidebar(false);
       }
     }
 
-    window.addEventListener("resize", hideToggleBar);
-    return () => window.removeEventListener("resize", hideToggleBar);
+    window.addEventListener("resize", automaticallyHideSideBar);
+    return () => window.removeEventListener("resize", automaticallyHideSideBar);
   }, []);
 
   function handleClick() {
-    setToggleSidebar(!toggleSidebar);
+    setSidebar(!sidebar);
   }
 
   return (
     // Full App
-    <div className="app">
+    <section className="app">
       <ChatContextProvider>
         <GlobalRefContextProvider>
           {/* Left Sidebar  */}
           <section
+            // Display it only when sidebar is on
             style={{
-              display: toggleSidebar ? "grid" : "",
+              display: sidebar ? "grid" : "",
             }}
-            className={`sidebar ${toggleSidebar ? "menuClicked" : ""}`}
+            className={`sidebar ${sidebar ? "menuClicked" : ""}`}
           >
             {/* Left Sidebar Upper Portion */}
             <section className="sidebar--upper">
-              <SidebarUpper />
+              <SidebarUpper sidebar={sidebar} setSidebar={setSidebar} />
             </section>
             {/* Left Sidebar Lower Portion */}
             <section className="sidebar--lower">
@@ -86,13 +79,8 @@ function HomePage() {
               handleClick={handleClick}
               styleClass="menu"
             >
-              {!toggleSidebar && (
-                <FiMenu
-                  title="Open Menu"
-                  style={{
-                    height: "48px",
-                  }}
-                />
+              {!sidebar && (
+                <FiMenu style={{ fontSize: "22px" }} title="Open Menu" />
               )}
             </MenuButton>
 
@@ -101,7 +89,7 @@ function HomePage() {
           </main>
         </GlobalRefContextProvider>
       </ChatContextProvider>
-    </div>
+    </section>
   );
 }
 

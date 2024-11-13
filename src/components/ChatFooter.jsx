@@ -2,12 +2,10 @@ const message = "*ChatGPT can make mistakes. Check important information";
 
 const version = "August 10";
 
-import { addMessage, updateMessage } from "../context/ChatContext";
 import { memo, useState } from "react";
 
 import Button from "./Button";
 import send from "../assets/send.svg";
-import { sendMsgToGeminiAI } from "../gen-ai/gemini";
 import styles from "./ChatFooter.module.css";
 import { useChatContext } from "../context/ChatContext";
 import { useGlobalRefContext } from "../context/GlobalRefContext";

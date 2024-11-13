@@ -44,7 +44,9 @@ function GlobalRefContextProvider({ children }) {
 function useGlobalRefContext() {
   const context = useContext(globalRefContext);
   if (context === undefined) {
-    throw new Error(" Invalid!!!");
+    throw new Error(
+      " Called in parent component if needed please shift to ancestors."
+    );
   }
   return context;
 }

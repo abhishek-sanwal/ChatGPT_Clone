@@ -1,6 +1,13 @@
 .chatBox {
-  height: 70vh;
+  height: 75vh;
   margin-bottom: 2.2rem;
   overflow: scroll;
   margin-top: 5px;
+  max-width: 70vw;
+}
+
+@media screen and (width <= 60em) {
+  .chatBox {
+    max-width: 100%;
+  }
 }

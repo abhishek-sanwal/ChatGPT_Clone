@@ -14,7 +14,7 @@
   flex: 1;
   cursor: pointer;
   display: flex;
-  gap: var(--l);
+  gap: var(--xxs);
   padding: var(--pad-left) calc(2 * var(--pad-left));
   border: 1px solid var(--border-color);
   border-radius: var(--border-default);
