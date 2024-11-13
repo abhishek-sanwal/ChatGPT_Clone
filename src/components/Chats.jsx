@@ -1,3 +1,4 @@
+import Copy from "./Copy";
 import ReactMarkdownComponent from "./ReactMarkdownComponent";
 import Suggestions from "./Suggestions";
 import TypewriterComponent from "./TypewriterComponent";
@@ -34,6 +35,7 @@ function Chats() {
             className={styles.answerBox}
             key={element.response}
           >
+            <Copy text={element.response} />
             <img src={logo} alt="Random Avatar Image" />
             {/* No Response or response is loading */}
             {!element.response || element.response === "Loading..." ? (

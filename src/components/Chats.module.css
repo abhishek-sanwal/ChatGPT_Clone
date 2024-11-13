@@ -11,6 +11,7 @@
 }
 
 .answerBox {
+  position: relative;
   border-radius: var(--border-default);
   display: flex;
   gap: var(--sm);
