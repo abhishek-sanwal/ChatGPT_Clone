@@ -22,32 +22,30 @@
   --btn-color: #5a4bff;
   --border-default: 8px;
   --scroll-track-color: #212121;
-  --scroll-track-piece-color: #bada55;
+  --scroll-track-piece-color: #666;
 }
 
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  /* Firefox and Chrome */
-  scrollbar-color: var(--scroll-track-piece-color) var(--scroll-track-color);
-  scrollbar-width: var(--border-default);
 }
 
-/* For Safari */
-*::-webkit-scrollbar {
-  width: var(--border-default); /* Adjust width as needed */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
 }
 
-/* For Safari */
-*::-webkit-scrollbar-track,
-*::-webkit-scrollbar-corner {
-  background: var(--scroll-track-color);
+::-webkit-scrollbar-corner {
+  background: inherit;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+  background: inherit;
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: var(--scroll-track-piece-color);
-  border-radius: 6px;
-  border: 2px solid #212121;
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-track-piece-color);
+  border-radius: 15px;
 }
 
 body {
