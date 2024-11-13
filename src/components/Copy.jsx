@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 
 import { FaCopy } from "react-icons/fa6";
+import styles from "./Copy.module.css";
 import { useState } from "react";
 
 function Copy({ text }) {
@@ -27,19 +28,9 @@ function Copy({ text }) {
   }
 
   return (
-    <button
-      className="copy"
-      title="Copy Response"
-      style={{
-        position: "absolute",
-        right: "5px",
-        top: "5px",
-        color: "#fff",
-      }}
-      onClick={handleClick}
-    >
+    <button className={styles.copy} title="Copy Response" onClick={handleClick}>
       <FaCopy />
-      <ToastContainer id={crypto.randomUUID} />
+      <ToastContainer containerId={crypto.randomUUID} />
     </button>
   );
 }

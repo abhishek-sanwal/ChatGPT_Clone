@@ -1,0 +1,14 @@
+.copy {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: #fff;
+  font-size: 2.4rem;
+}
+
+/* 464px */
+@media screen and (width <=29em) {
+  .copy {
+    font-size: 1.4rem;
+  }
+}
