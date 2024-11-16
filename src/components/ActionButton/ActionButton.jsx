@@ -1,7 +1,7 @@
-import { addChat } from "../context/ChatContext";
-import addLogo from "../assets/add-30.png";
-import styles from "./ActionButton.module.css";
-import { useChatContext } from "../context/ChatContext";
+import { addChat, useChatContext } from '../../context/ChatContext';
+
+import addLogo from '../../assets/add-30.png';
+import styles from './ActionButton.module.css';
 
 function ActionButton() {
   const { messages, dispatch } = useChatContext();
@@ -13,7 +13,7 @@ function ActionButton() {
 
   return (
     <button className={styles.btnContainer} onClick={handleClick}>
-      <img className={styles.btnImg} src={addLogo} alt="Add symbol" />
+      <img className={styles.btnImg} src={addLogo} alt='Add symbol' />
       <span>New Chat</span>
     </button>
   );

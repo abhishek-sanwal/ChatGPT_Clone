@@ -1,7 +1,6 @@
-import ActionButton from "./ActionButton";
-import Logo from "./Logo";
-import { MdClose } from "react-icons/md";
-import PreviousChats from "./PreviousChats";
+import ActionButton from '../ActionButton/ActionButton';
+import Logo from '../Logo/Logo';
+import PreviousChats from '../PreviousChats/PreviousChats';
 
 function SidebarUpper({ sidebar, setSidebar }) {
   return (
@@ -10,14 +9,14 @@ function SidebarUpper({ sidebar, setSidebar }) {
       {sidebar && (
         <button
           style={{
-            position: "absolute",
-            color: "#fff",
-            fontSize: "20px",
-            right: "15px",
-            top: "15px",
+            position: 'absolute',
+            color: '#fff',
+            fontSize: '20px',
+            right: '15px',
+            top: '15px',
           }}
           onClick={() => setSidebar(false)}
-          title="close menu"
+          title='close menu'
         >
           X
         </button>

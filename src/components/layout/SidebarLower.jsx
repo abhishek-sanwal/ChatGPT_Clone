@@ -1,4 +1,4 @@
-import ListOptions from "./ListOptions";
+import ListOptions from '../ListOptions/ListOptions';
 
 function SidebarLower() {
   return <ListOptions />;

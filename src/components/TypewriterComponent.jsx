@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
-import ReactMarkdownComponent from "./ReactMarkdownComponent";
-import { useTypewriter } from "react-simple-typewriter";
+import ReactMarkdownComponent from './ReactMarkdownComponent';
+import { useTypewriter } from 'react-simple-typewriter';
 
 function TypewriterComponent({ data, speed }) {
-  const typeWriterRef = useRef();
+  // const typeWriterRef = useRef();
   const [text] = useTypewriter({
     words: [data],
     typeSpeed: speed,
@@ -13,7 +13,7 @@ function TypewriterComponent({ data, speed }) {
   // Automatically Scroll Content
   // useEffect(
   //   function () {
-  //     typeWriterRef.current?.scrollIntoView({
+  //     typeWriterRef?.current?.scrollIntoView({
   //       block: "end",
   //       behavior: "smooth",
   //     });
@@ -21,7 +21,7 @@ function TypewriterComponent({ data, speed }) {
   //   [text]
   // );
   return (
-    <div ref={typeWriterRef}>
+    <div>
       {/* Render Markdown with syntax highlighting */}
       <ReactMarkdownComponent text={text} />
     </div>

@@ -1,6 +1,6 @@
-function Button({ children, handleClick }) {
+function Button({ children, styleClass, buttonRef, handleClick }) {
   return (
-    <button title="Ask Chatgpt" onClick={handleClick}>
+    <button ref={buttonRef} onClick={handleClick} className={styleClass}>
       {children}
     </button>
   );

@@ -125,6 +125,7 @@ export default apiKey;
 
 ### Upcoming Features:
 
+- Type-Safe version of code
 - Support of Images and Audio
 - Backend in Python for more features.
 - Copy exact code or markdown rather than full response.

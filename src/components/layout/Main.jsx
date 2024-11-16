@@ -1,5 +1,5 @@
-import ChatBox from "./ChatBox";
-import ChatFooter from "./ChatFooter";
+import ChatBox from '../ChatBox/ChatBox';
+import ChatFooter from '../ChatFooter/ChatFooter';
 
 function Main() {
   return (
